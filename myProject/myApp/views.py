@@ -92,6 +92,7 @@ def userlogout(request):
 
 # 
 
+@login_required(login_url='userlogin')
 def adminhomepage(request):
     return render(request, 'base/adminhomepage.html')
 
