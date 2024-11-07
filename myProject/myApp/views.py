@@ -30,7 +30,7 @@ def landingpage(request):
 
 
 # @login_required(login_url='userlogin')
-# @allowed_users(allowed_roles=['alumni'])
+# @admin_only
 # def homepage(request):
 #     return render(request, 'base/homepage.html')
 

@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.landingpage, name='landingpage'),  # Root URL now points to landing page
+    path('', views.landingpage, name='landingpage'),  
     path('homepage/', views.homepage, name='homepage'),
     path('adminhomepage/', views.adminhomepage, name='adminhomepage'),
 
