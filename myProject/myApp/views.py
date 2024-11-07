@@ -23,16 +23,16 @@ def landingpage(request):
     return render(request, 'base/landingpage.html')
 
 
-@login_required(login_url='userlogin')
-@admin_only
-def adminhomepage(request):
-    return render(request, 'base/adminhomepage.html')
+# @login_required(login_url='userlogin')
+# @admin_only
+# def adminhomepage(request):
+#     return render(request, 'base/adminhomepage.html')
 
 
-@login_required(login_url='userlogin')
-@allowed_users(allowed_roles=['alumni'])
-def homepage(request):
-    return render(request, 'base/homepage.html')
+# @login_required(login_url='userlogin')
+# @allowed_users(allowed_roles=['alumni'])
+# def homepage(request):
+#     return render(request, 'base/homepage.html')
 
 
 @unauthenticated_user
