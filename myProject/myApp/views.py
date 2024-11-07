@@ -25,7 +25,6 @@ def adminhomepage(request):
 def homepage(request):
     return render(request, 'base/homepage.html')
 
-
 # Signup, login, and logout views
 
 def usersignup(request):
@@ -62,7 +61,8 @@ def userlogin(request):
 
         if user is not None:
             login(request, user)
-            # Redirect based on user group
+
+            # rredirect based on GROUP
             if user.groups.filter(name='admin').exists():
                 return redirect('adminhomepage')
             elif user.groups.filter(name='alumni').exists():
