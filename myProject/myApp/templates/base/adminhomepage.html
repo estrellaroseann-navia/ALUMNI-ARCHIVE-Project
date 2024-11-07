@@ -1,1 +1,148 @@
-<h1>ADMIN HOME PAGE</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/adminhomepage.css'%}"> <!-- Use the same CSS file for consistent style -->
+    <title>Home Page - Admin</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <a href="{% url 'adminhomepage' %}"><h1>Alumni Archive</h1></a>
+                    <p>A Web-based System for Keeping Palawan State University Alumni Data Alive</p>
+                </div>
+                <nav class="navbar-links">
+                    <a href="{% url 'homepage' %}" class="active">Admin Home</a>
+                    <a href="{% url 'survey' %}">Take Tracking Survey</a>
+                    <a href="{% url 'about' %}">About Us</a>
+                    <a href="{% url 'contact' %}">Contact Us</a>
+                    <a href="{% url 'donation' %}">Donate</a>
+                </nav>
+                <div class="navbar-profile" id="profile">
+                    <span id="navbarUserName">USER</span>
+                    <img src="photos/profile.png" alt="User Profile" class="avatar" id="navbarProfileImg">
+                    <div class="dropdown-content" id="dropdown-menu">
+                        <a href="#">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Picture Container -->
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="photos/slide1.jpg" alt="Slide 1">
+        </div>
+        <div class="slide fade">
+            <img src="photos/SITE.jpg" alt="Slide 2">
+        </div>
+        <div class="slide fade">
+            <img src="photos/ACS.jpg" alt="Slide 3">
+        </div>
+        <div class="slide fade">
+            <img src="photos/ESSA.jpg" alt="Slide 4">
+        </div>
+        <div class="slide fade">
+            <img src="photos/YBA.jpg" alt="Slide 5">
+        </div>
+        <div class="slide fade">
+            <img src="photos/Burungitan.jpg" alt="Slide 6">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+    <!-- Announcement Section -->
+    <section class="announcement-section">
+        <h2>Announcements</h2>
+        <div class="announcement-container">
+            <div class="announcement">
+                <p><strong>Reminder:</strong> Alumni Homecoming Event on December 15, 2024. Save the date!</p>
+            </div>
+            <div class="announcement">
+                <p><strong>New Feature:</strong> Check out the new Alumni Networking Platform launched this month!</p>
+            </div>
+            <div class="announcement">
+                <p><strong>Call for Contributions:</strong> Share your stories and updates for the next Alumni Newsletter.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <h2>Alumni Milestones</h2>
+
+        <div class="article-container">
+            <!-- First Article -->
+            <div class="article">
+                <div class="article-content">
+                    <img src="photos/Burungitan.jpg" alt="Freshmen Welcome Image" class="article-image">
+                    <a href="https://fb.watch/umNxjYIN0Y/" class="article-link">
+                        Freshmen Welcome, Orientation, at Burungitan Rites ngayong unang semestre ng taong 2024.
+                    </a>
+                </div>
+                <hr class="article-separator">
+            </div>
+        
+            <!-- Second Article -->
+            <div class="article">
+                <div class="article-content">
+                    <img src="photos/Strasuc2024.png" alt="STRASUC OLYMPICS 2024" class="article-image">
+                    <a href="https://fb.watch/u-bQW2YQft/" class="article-link">
+                        Southern Tagalog Regional Association of State Universities and Colleges (STRASUC) Olympics 2024
+                    </a>
+                </div>
+                <hr class="article-separator">
+            </div>
+        
+            <!-- Third Article -->
+            <div class="article">
+                <div class="article-content">
+                    <img src="photos/Medical-Mission.jpg" alt="Medical Mission Image" class="article-image">
+                    <a href="https://www.facebook.com/psupalawan1965/posts/1025912709225503" class="article-link">
+                        Faculty Union Leads Free Medical Mission in Celebration of CSC Month
+                    </a>
+                </div>
+                <hr class="article-separator">
+            </div>
+        
+            <!-- Fourth Article -->
+            <div class="article">
+                <div class="article-content">
+                    <img src="photos/MIMAROPAlikula.jpg" alt="TES Congress Image" class="article-image">
+                    <a href="https://www.facebook.com/psupalawan1965/posts/1021905149626259" class="article-link">
+                        PalawanSU Triumphs in Battle of the Bands and MIMAROPAlikula during the TES Congress 2024!
+                    </a>
+                </div>
+                <hr class="article-separator">
+            </div>
+        </div>
+        
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Palawan State University. All rights reserved.</p>
+    </footer>
+
+    <script src="js/homepage.js"></script> <!-- Include your slideshow script here -->
+</body>
+
+</html>

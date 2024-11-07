@@ -1,0 +1,298 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styles */
+html, body {
+    height: 100%; /* Ensure the body takes full height */
+}
+
+body {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+}
+
+/* Navbar Styles */
+header {
+    background-color: #f8eedf; /* Navbar background */
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Full width for navbar container */
+}
+
+.navbar-brand {
+    flex: 1; /* Take space on the left */
+}
+
+.navbar-brand h1 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.navbar-brand p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Center the links */
+.navbar-links {
+    flex: 1; /* Center the links */
+    text-align: center; /* Center align */
+}
+
+.navbar-links a {
+    margin: 0 15px;
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+}
+
+.navbar-links a:hover {
+    color: #f07d3b; /* Hover color */
+}
+
+/* Profile Icon */
+.navbar-profile {
+    display: flex;
+    align-items: center;
+    position: relative; /* Needed for dropdown positioning */
+}
+
+.navbar-profile span {
+    margin-right: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.navbar-profile img.avatar {
+    width: 30px; /* Set avatar width */
+    height: 30px; /* Set avatar height */
+    border-radius: 50%;
+    border: 2px solid #333; /* Border for avatar */
+    cursor: pointer; /* Pointer cursor for profile image */
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none; /* Initially hide the dropdown */
+    position: absolute; /* Position it below the avatar */
+    top: 40px; /* Adjust based on avatar height */
+    right: 0; /* Align to the right */
+    background-color: #f8eedf; /* Background color for dropdown */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+    z-index: 1; /* Ensure dropdown is above other content */
+}
+
+.dropdown-content a {
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Vertically align icon and text */
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-content i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 16px;    /* Adjust icon size */
+}
+
+.dropdown-content a:hover {
+    background-color: #f07d3b; /* Hover effect */
+    color: white; /* Change text color on hover */
+}
+
+/* Show dropdown when toggled */
+.show {
+    display: block; /* Show dropdown */
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    width: 100%; /* Full width */
+    margin: 20px auto; /* Center the slideshow and add vertical margins */
+    padding: 20px; /* Add padding for space inside the container */
+    background-color: #f8eedf; /* Optional: Background color for separation */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Shadow for depth */
+}
+
+.slide {
+    display: none; /* Hide all slides by default */
+}
+
+.slide img {
+    width: 100%; /* Responsive images to fill the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 400px; /* Set a maximum height */
+    object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
+}
+
+.prev, .next {
+    cursor: pointer; /* Pointer cursor for navigation */
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Announcement Section Styles */
+.announcement-section {
+    padding: 20px;
+    margin-top: 20px; /* Space above announcements */
+    background-color: #f8eedf; /* Background color for announcements */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.announcement-section h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+.announcement-container {
+    max-width: 800px; /* Set a max width for the announcement container */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+}
+
+.announcement p {
+    text-align: center; /* Center the announcement text */
+}
+
+.announcement {
+    background-color: #ffffff; /* White background for individual announcements */
+    border-radius: 5px; /* Rounded corners for announcements */
+    padding: 10px; /* Padding inside the announcement */
+    margin-bottom: 10px; /* Space between announcements */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+    text-align: center; /* Center-align the content inside the announcement */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Center the content horizontally */
+}
+
+/* Edit Button Styles */
+.edit-btn {
+    background-color: #f07d3b; /* Matches the accent color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text and icon */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 10px; /* Add space between the announcement text and the button */
+}
+
+.edit-btn i {
+    margin-right: 5px; /* Space between the icon and text */
+    font-size: 1rem;
+}
+
+.edit-btn:hover {
+    background-color: #d45e24; /* Darker shade for hover effect */
+}
+
+/* Main Content Styles */
+.main-content {
+    padding: 20px;
+    margin-top: 10px; /* Add margin-top for space between slideshow and main content */
+    background-color: white; /* Optional: White background for contrast */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Shadow for depth */
+    flex-grow: 1; /* Allow main content to grow and take up remaining space */
+}
+
+.main-content h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Article Container and Styles */
+.article-container {
+    margin: 20px 0;
+    max-width: 800px; /* Set a max width for the article container */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+}
+
+.article {
+    margin: 10px 0; /* Add vertical margin for separation between articles */
+}
+
+/* Styles for articles with images */
+.article-content {
+    display: flex;
+    align-items: center; /* Align image and text vertically */
+    margin-bottom: 10px;
+}
+
+.article-image {
+    width: 100px; /* Set a width for the images */
+    height: 100px; /* Set a height for the images */
+    object-fit: cover; /* Ensure the image covers the area */
+    margin-right: 15px; /* Space between image and link */
+    border-radius: 8px; /* Optional: rounded corners for images */
+}
+
+.article-link {
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.article-link:hover {
+    color: #f07d3b; /* Hover color */
+}
+
+.article-separator {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+}
+.edit-btn {
+    margin-left: auto; /* Push the edit button to the right */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f07d3b; /* Footer background */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto; /* Push the footer to the bottom */
+}

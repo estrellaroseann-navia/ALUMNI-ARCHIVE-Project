@@ -6,6 +6,7 @@ from django.forms import inlineformset_factory
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 
 from django.contrib import messages
 
@@ -15,26 +16,39 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import *
 from .forms import CreateUserForm
 
-from .decorators import allowed_users, unauthenticated_user
+from .decorators import allowed_users, unauthenticated_user, admin_only
 
 
 def landingpage(request):
     return render(request, 'base/landingpage.html')
 
+@login_required(login_url='userlogin')
+@admin_only
+def adminhomepage(request):
+    return render(request, 'base/adminhomepage.html')
+
+@login_required(login_url='userlogin')
+@admin_only
+def homepage(request):
+    return render(request, 'base/homepage.html')
 
 # for sign up and login and logout
 
 def usersignup(request):
     if request.user.is_authenticated:
-        return redirect('homepage')
+        return redirect('landingpage')
     else: 
         form = CreateUserForm()
         if request.method == 'POST':
             form = CreateUserForm(request.POST)
             if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'Account was created for ' + user)
+                user = form.save()
+                username = form.cleaned_data.get('username')
+
+                group = Group.objects.get(name='alumni')
+                user.groups.add(group)
+
+                messages.success(request, 'Account was created for ' + username)
 
                 return redirect('userlogin')
 
@@ -51,7 +65,7 @@ def userlogin(request):
 
         if user is not None:
             login(request, user)
-            return redirect('homepage')
+            return redirect('landingpage')
         else:
             messages.info(request, 'Username or Password is incorrect!')
 
@@ -65,16 +79,6 @@ def userlogout(request):
     logout(request)
     return redirect('userlogin')
 
-
-@login_required(login_url='userlogin')
-@allowed_users(allowed_roles=['admin'])
-def adminhomepage(request):
-    return render(request, 'base/adminhomepage.html')
-
-@login_required(login_url='userlogin')
-@allowed_users(allowed_roles=['alumni'])
-def homepage(request):
-    return render(request, 'base/homepage.html')
 
 # end of sign up and log in
 
