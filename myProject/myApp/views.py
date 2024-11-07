@@ -90,6 +90,10 @@ def userlogout(request):
     logout(request)
     return redirect('userlogin')
 
+# 
+
+def adminhomepage(request):
+    return render(request, 'base/adminhomepage.html')
 
 @login_required(login_url='userlogin')
 def about(request):
@@ -103,16 +107,13 @@ def contact(request):
 def survey(request):
     return render(request, 'base/survey.html')
 
-
 @login_required(login_url='userlogin')
 def forgotpassword(request):
     return render(request, 'base/forgotpassword.html')
 
-
 @login_required(login_url='userlogin')
 def donation(request):
     return render(request, 'base/donation.html')
-
 
 @login_required(login_url='userlogin')
 def alumni(request):
